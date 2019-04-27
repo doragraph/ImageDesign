@@ -70,7 +70,7 @@ function getImages()
   var imageinfo = [];
   
   var request = new XMLHttpRequest();
-  request.open('GET', 'http://192.168.51.212:3368/casigo/sDAGpixel', false);
+  request.open('GET', 'http://3.112.106.186:7744/casigo/sDAGpixel', false);
   request.onload = function () {
   var data = JSON.parse(this.response);
   if (request.status >= 200 && request.status < 400) {
@@ -104,7 +104,7 @@ function getUserInfo()
   
   var request = new XMLHttpRequest();
   //request.open('GET', 'http://192.168.51.212:3368/casigo/sDAGpixel', false);
-  request.open('GET', 'http://192.168.51.212:3368/casigo/sDAGinfo', false);
+  request.open('GET', 'http://3.112.106.186:7744/casigo/sDAGinfo', false);
   request.onload = function () {
   var data = JSON.parse(this.response);
   console.log(data);
