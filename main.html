@@ -111,21 +111,50 @@
                   </div>
               </div>
               <div class="col-md-1 header-right">
-                  <a class="active" href="#" data-toggle="modal" data-target="#RulesModal">Rules</a>
+                  <a class="active float-right" href="#" data-toggle="modal" data-target="#RulesModal">Rules</a>
               </div>
             </div>
            
     </header>
     <div class="container-fluid">
-
+        <input id='uploadfile' type ='file' style="display:none">
         <div id="blogPosts">
         </div>
 
         <!-- The Image Modal -->
         <div id="myModal" class="modal1">
             <span class="close1" onclick="closepopup()">&times;</span>
-            <img class="modal-content1" id="img01">
-            <div id="caption"></div>
+            <div class="col-md-12 col-md-offset-1">
+              <div class="col-md-6">
+                  <img class="modal-content1" id="img01" name="img01">
+                  <div id="caption"></div>
+              </div>
+              <div class="col-md-4">
+                  <!---<span class="btn btn-success" id="addfile">
+                      <i class="glyphicon glyphicon-plus"></i>
+                      <span>Image URL</span>
+                      <input id="file-input" type="file" name="name" style="display: none;" />
+                  </span><br>-->
+                  <span class="url">Enter Image URL</span>
+                  <input type="text" class="form-control" id="inputurl" placeholder="URL">
+                  
+                  <div class="imgmargintop">
+                  <img class="imgpreview" id="img02" alt="">
+                  </div>
+
+                  <span class="url imgmargintop">Enter Introduction</span>
+                  <input type="text" class="form-control" id="txtintro" placeholder="Introduction">
+                  
+                  <div class="metmaskinfo imgmargintop">
+                    <div class="metainfoinnerdiv">
+                      <h4>Owner: <label class="label label-default adjustword" id="span_owner"></label></h4>
+                      <h4>Price: <label class="label label-default adjustword" id="span_price"></label></h4>
+                      <h4>Smart Contract Address: <span class="label label-default adjustword"></label></h4>
+                      <h4>Input hex: <label class="label label-default adjustword" id="span_inputhex"></label></h4>
+                    </div>
+                  </div>
+              </div>
+            </div>
         </div>
 
         <!-- The Rules Modal -->

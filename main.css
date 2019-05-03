@@ -39,8 +39,9 @@
 .blog {
   /*display: inline-block;*/
   display: box;
-  width: 10%;
-  height:10%;
+  width: 5%;
+  /*height:5%;*/
+  padding: 3px;
 }
 
 .blog img {
@@ -48,8 +49,7 @@
   width: 100% !important;
   height: 100% !important;
   /*height: 67.25px !important;*/
-  border-radius: 10px;
-  padding:5px;
+  border-radius: 5px;
 }
 
 #photos img {
@@ -57,7 +57,7 @@
   /*width: 100% !important;*/
   /*height: auto !important;*/
   height: 67.25px !important;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 @media (max-width: 1200px) {
@@ -97,8 +97,7 @@ body {
   background-size: cover;
 }
 header {
-    background-color: gray;
-	opacity: 0.7;
+    background-color: darkkhaki;
     text-align: center;
     height: 100px;
     padding: 15px;
@@ -117,7 +116,7 @@ header a {
 
 
 header a:hover {
-  background-color:gray;
+  background-color: #ddd;
   color: black;
 }
 
@@ -131,8 +130,7 @@ header a.active {
   float: right;
 }
 
-@media screen and (max-width: 1000px) {
-	header{height: 500px;}
+@media screen and (max-width: 500px) {
   header a {
     float: none;
     display: block;
@@ -151,14 +149,14 @@ header a.active {
     transition: 0.3s;
   }
   
-  .myImg:hover {opacity: 0.7;}
+  .myImg:hover {opacity: 0.9;}
   
   /* The Modal (background) */
   .modal1 {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 80px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -183,7 +181,7 @@ header a.active {
     width: 80%;
     max-width: 700px;
     text-align: center;
-    color: red;
+    color: #F2AA4CFF;
     padding: 10px 0;
     height: 150px;
   }
@@ -261,7 +259,7 @@ header a.active {
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 2px solid #e3e6f0;
+    border: 1px solid #e3e6f0;
     border-radius: .35rem;
 }
 .shadow {
@@ -372,4 +370,37 @@ header a.active {
 }
 .float-right{
   float: right;
+}
+
+.imgpreview {
+  margin: auto;
+  width: 30%;
+  max-width: 150px;
+}
+
+.imgmargintop{
+  margin-top: 5px;
+}
+
+.metmaskinfo{
+  border-radius: 10px;
+  background-color: white;
+  height: auto;
+}
+
+.metainfoinnerdiv{
+  margin: 8px;
+  padding: 1px;
+}
+
+.url{
+    color: white;
+    text-align: left;
+    padding-left: 0px;
+}
+
+.adjustword{
+  word-wrap: break-word;
+  white-space: inherit;
+  padding-left: 0px;
 }
