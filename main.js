@@ -1,3 +1,6 @@
+var ipaddress = '13.75.117.140';
+var port = '3368';
+
 
 /////////Display images//////////
 window.onload = function () {
@@ -26,13 +29,13 @@ for (var i = 1, j = imginfo.length; i < j; i++) {
     
     if(typeof imginfo[i] === "undefined"){image_info = ""; name = ""; introduction = ""; }
     else{
-        image_info = imginfo[i]["owner"] + "," + imginfo[i]["price"]+ "," +String(imginfo[i]["introduction"]).trim();
+        image_info = imginfo[i]["owner"] + "," + imginfo[i]["price"]+ "," +String(imginfo[i]["introduction"]).trim()+ "," +imginfo[i]["address"];
         introduction = String(imginfo[i]["introduction"]).trim();
     }
 
     var coordinateno = i;
     //allImages += '<img class="myImg" src='+ imgurl[0][i] +' id='+i+'_id onclick="openpopup(this.src,\''+image_info+'\');" title="'+introduction+'" alt="">';
-    allImages += '<div class="blog" id=' + row + '_'+col+'_div><img class="myImg" src='+ imginfo[i]["url"] +' id='+coordinateno+' onclick="openpopup(this.id,this.src,\''+image_info+'\');" title="'+introduction+'" alt=""></div>';
+    allImages += '<div class="blog" id=' + row + '_'+col+'_div><img class="myImg" src='+ imginfo[i]["url"] +' id='+coordinateno+' onclick="openpopup(this.id,this.src,\''+image_info+'\');" title="'+introduction+'" alt="" onerror="this.onerror=null;this.src=\'https://media1.giphy.com/media/j5QUSpXVuwtr2/giphy.gif?cid=790b76115ccc211b71584e665985d92f&rid=giphy.gif\';"></div>';
     
 }
 
@@ -63,6 +66,7 @@ function openpopup(id,src,info){
     document.getElementById("span_owner").innerHTML = imginfoarray[0].trim();
     document.getElementById("span_price").innerHTML = imginfoarray[1].trim();
     captionText.innerHTML = imginfoarray[2].trim();
+    document.getElementById("span_address").innerHTML = imginfoarray[3].trim();
 
 }
 
@@ -74,6 +78,9 @@ function closepopup(){
     $('#img02').attr('src', null);
     document.getElementById("txtintro").value="";
     document.getElementById('span_inputhex').innerHTML="";
+    document.getElementById('span_owner').innerHTML="";
+    document.getElementById('span_price').innerHTML="";
+    document.getElementById('span_address').innerHTML="";
 }
 
 
@@ -84,13 +91,14 @@ function getImages()
   var imageinfo = [];
   
   var request = new XMLHttpRequest();
-  request.open('GET', 'http://192.168.51.212:3368/casigo/sDAGpixel?limit=200', false);
+  //request.open('GET', 'http://192.168.51.212:3368/casigo/sDAGpixel?limit=200', false);
+  request.open('GET', 'http://'+ipaddress+':'+port+'/casigo/sDAGpixel?limit=200', false);
   request.onload = function () {
   var data = JSON.parse(this.response);
   if (request.status >= 200 && request.status < 400) {
     for(var j=0;j<data.length;j++) {
       imagearr.push(data[j].url);
-      imageinfo.push({"url":data[j].url,"owner":data[j].owner,"price":data[j].price, "introduction":data[j].introduction, "sort":data[j].sort});
+      imageinfo.push({"url":data[j].url,"owner":data[j].owner,"price":data[j].price, "introduction":data[j].introduction, "sort":data[j].sort, "address":data[j].address});
     }
   } else {
     console.log('error');
@@ -117,7 +125,8 @@ function getUserInfo()
   var a = [];
   
   var request = new XMLHttpRequest();
-  request.open('GET', 'http://192.168.51.212:3368/casigo/sDAGinfo', false);
+  request.open('GET', 'http://'+ipaddress+':'+port+'/casigo/sDAGinfo', false);
+ // request.open('GET', 'http://localhost:3368/casigo/sDAGinfo', false);
   request.onload = function () {
   var data = JSON.parse(this.response);
   console.log(data);
@@ -151,7 +160,7 @@ function sendAPIData(url,introduction,coordinateid){
         document.getElementById("span_inputhex").innerHTML = data[0].input;
       }
     };
-    xhttp.open("POST", "http://192.168.51.212:3368/casigo/sDAGinput",true);
+    xhttp.open("POST", "http://"+ipaddress+":"+port+"/casigo/sDAGinput",true);
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     var input = JSON.stringify({
       "coordinate": coordinateid,
