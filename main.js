@@ -235,6 +235,7 @@ async function connectMetamask(){
         console.log(transactionHash); 
         document.getElementById('span_metalink').innerText="https://kovan.etherscan.io/tx/"+transactionHash.result;
         document.getElementById('span_metalink').href="https://kovan.etherscan.io/tx/"+transactionHash.result;
+        
     })
 
   } catch (error) {
