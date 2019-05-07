@@ -23,7 +23,7 @@ imginfo = sortByKey(imginfo, 'sort');
 
 //console.log(imginfo);
 
-for (var i = 1, j = imginfo.length; i < j; i++) {
+for (var i = 1, j = 50; i < j; i++) {
     
     //if(imgurl[0][i] == undefined){imgurl[0][i]="image/upload.png"}
     if(imginfo[i]["url"] == undefined){imginfo[i]["url"]="image/upload.png"}
