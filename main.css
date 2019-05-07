@@ -44,14 +44,16 @@
   width:93.7px;
   height:93.7px;
   padding: 3px;
+  overflow: hidden;
 }
 
 .blog img {
-  /* Just in case there are inline attributes */
+  /* Just in case there are inline attributes*/ 
   width: 100% !important;
   height: 100% !important;
-  /*height: 67.25px !important;*/
   border-radius: 5px;
+
+  /*max-width: 93.7px;_width:expression(this.width > 93.7 ? "93.7px" : this.width);*/
 }
 
 #photos img {
@@ -407,3 +409,5 @@ header a.active {
   white-space: inherit;
   padding-left: 0px;
 }
+
+

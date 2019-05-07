@@ -11,6 +11,8 @@
   <script src="main.js"></script>
   <link rel="stylesheet" type="text/css" href="main.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script type="text/javascript" src="web3.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -117,7 +119,6 @@
            
     </header>
     <div class="container-fluid">
-        <input id='uploadfile' type ='file' style="display:none">
         <div id="blogPosts">
         </div>
 
@@ -149,10 +150,18 @@
                     <div class="metainfoinnerdiv">
                       <h4>Owner: <label class="label label-default adjustword" id="span_owner"></label></h4>
                       <h4>Price: <label class="label label-default adjustword" id="span_price"></label></h4>
+                      <input type="hidden" id="weiprice" name="custId">
                       <h4>Smart Contract Address: <span class="label label-default adjustword" id="span_address"></label></h4>
                       <h4>Input hex: <label class="label label-default adjustword" id="span_inputhex"></label></h4>
                     </div>
                   </div>
+                  <div class=" imgmargintop"><button type="button" id="btn_buy_meta" class="btn btn-info" onclick="connectMetamask();" disabled>Buy by Metamask</button>
+                    <button type="button" onclick="window.open('https://www.myetherwallet.com/interface/send-transaction')" id="btn_buy_myether" class="btn btn-info" disabled>Buy by MyEtherWallet</button>
+                  </div>
+                  <div class="imgmargintop">
+                    <h4><a class="label label-default adjustword" id="span_metalink"></a></h4>
+                  </div>
+                  
               </div>
             </div>
         </div>
