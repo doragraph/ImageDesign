@@ -25,7 +25,6 @@ imginfo = sortByKey(imginfo, 'sort');
 
 for (var i = 1, j = imginfo.length; i < j; i++) {
     
-    //if(imgurl[0][i] == undefined){imgurl[0][i]="image/upload.png"}
     if(imginfo[i]["url"] == undefined){imginfo[i]["url"]="image/upload.png"}
     
     if(typeof imginfo[i] === "undefined"){image_info = ""; name = ""; introduction = ""; }
@@ -35,7 +34,7 @@ for (var i = 1, j = imginfo.length; i < j; i++) {
     }
 
     var coordinateno = i;
-    //allImages += '<img class="myImg" src='+ imgurl[0][i] +' id='+i+'_id onclick="openpopup(this.src,\''+image_info+'\');" title="'+introduction+'" alt="">';
+  
     allImages += '<div class="blog" id=' + row + '_'+col+'_div><img class="myImg" src='+ imginfo[i]["url"] +' id='+coordinateno+' onclick="openpopup(this.id,this.src,\''+image_info+'\');" title="'+introduction+'" alt="" onerror="this.onerror=null;this.src=\'https://media1.giphy.com/media/j5QUSpXVuwtr2/giphy.gif?cid=790b76115ccc211b71584e665985d92f&rid=giphy.gif\';"></div>';
     
 }
@@ -96,6 +95,7 @@ function closepopup(){
 
     document.getElementById('span_metalink').innerText ="";
     document.getElementById('span_metalink').href ="#";
+    document.getElementById('span_success').innerText = "";
 }
 
 
@@ -144,12 +144,7 @@ function getUserInfo()
   //request.open('GET', 'http://192.168.51.212:3368/casigo/sDAGinfo', false);
   request.onload = function () {
   var data = JSON.parse(this.response);
-  //console.log(data);
   if (request.status >= 200 && request.status < 400) {
-
-    //var objectNames = Object.keys(data);
-    //var th_users = objectNames[2];
-    //var th_transaction = objectNames[1];
 
     document.getElementById("24h_transaction").innerHTML = data.TFHtransaction;
     document.getElementById("24h_users").innerHTML = data.TFHuser;
@@ -197,7 +192,6 @@ function CheckImagedataempty() {
   }
 }
 
-
 async function connectMetamask(){
 
   //Collect param values
@@ -235,7 +229,7 @@ async function connectMetamask(){
         console.log(transactionHash); 
         document.getElementById('span_metalink').innerText="https://kovan.etherscan.io/tx/"+transactionHash.result;
         document.getElementById('span_metalink').href="https://kovan.etherscan.io/tx/"+transactionHash.result;
-        
+        document.getElementById('span_success').innerText = "Transaction Successfully Done!!!";
     })
 
   } catch (error) {

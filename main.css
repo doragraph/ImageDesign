@@ -1,15 +1,4 @@
 /**Display images**/
-/*#photos {
-   line-height: 0;
-   
-   -webkit-column-count: 20;
-   -webkit-column-gap:   3px;
-   -moz-column-count:    20;
-   -moz-column-gap:      3px;
-   column-count:         20;
-   column-gap:           3px;
-   display: inline-block;
-}*/
 
 #blogPosts {
   display: block;
@@ -39,8 +28,6 @@
 .blog {
   /*display: inline-block;*/
   display: box;
-  /*width: 5%;*/
-  /*height:5%;*/
   width:93.7px;
   height:93.7px;
   padding: 3px;
@@ -49,49 +36,12 @@
 
 .blog img {
   /* Just in case there are inline attributes*/ 
-  width: 100% !important;
-  height: 100% !important;
   border-radius: 5px;
-
-  /*max-width: 93.7px;_width:expression(this.width > 93.7 ? "93.7px" : this.width);*/
+  height: 100%;
+  width:100%;
+  object-fit: cover;
 }
 
-#photos img {
-  /* Just in case there are inline attributes */
-  /*width: 100% !important;*/
-  /*height: auto !important;*/
-  height: 67.25px !important;
-  border-radius: 5px;
-}
-
-@media (max-width: 1200px) {
-  #photos {
-  -moz-column-count:    4;
-  -webkit-column-count: 4;
-  column-count:         4;
-  }
-}
-@media (max-width: 1000px) {
-  #photos {
-  -moz-column-count:    3;
-  -webkit-column-count: 3;
-  column-count:         3;
-  }
-}
-@media (max-width: 800px) {
-  #photos {
-  -moz-column-count:    2;
-  -webkit-column-count: 2;
-  column-count:         2;
-  }
-}
-@media (max-width: 400px) {
-  #photos {
-  -moz-column-count:    1;
-  -webkit-column-count: 1;
-  column-count:         1;
-  }
-}
 /**Display images**/
 
 body {
@@ -214,7 +164,6 @@ header a.active {
     position: absolute;
     top: 15px;
     right: 35px;
-    /*color: #f1f1f1;*/
     color: white;
     font-size: 40px;
     font-weight: bold;
@@ -223,7 +172,6 @@ header a.active {
   
   .close1:hover,
   .close1:focus {
-    /*color: #bbb;*/
     color: white;
     text-decoration: none;
     cursor: pointer;
@@ -408,6 +356,12 @@ header a.active {
   word-wrap: break-word;
   white-space: inherit;
   padding-left: 0px;
+}
+
+.successmsg_color{
+  color:green;
+  font-size: 100%;
+  background-color: yellow;
 }
 
 
