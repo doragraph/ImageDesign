@@ -236,3 +236,4 @@ async function connectMetamask(){
     console.log(error === "User rejected provider access")
   }
 }
+

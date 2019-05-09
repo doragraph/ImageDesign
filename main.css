@@ -53,7 +53,7 @@ body {
 header {
     /*background-color: darkkhaki;*/
     text-align: center;
-    height: 100px;
+    height: auto;
     padding: 15px;
     background: rgba(255,255,255,0.3);
 }
@@ -138,7 +138,7 @@ header a.active {
     text-align: center;
     color: #F2AA4CFF;
     padding: 10px 0;
-    height: 150px;
+    height: auto;
   }
   
   /* Add Animation */
@@ -180,6 +180,9 @@ header a.active {
   /* 100% Image Width on Smaller Screens */
   @media only screen and (max-width: 700px){
     .modal-content1 {
+      width: 100%;
+    }
+    .modal-content {
       width: 100%;
     }
   }
@@ -286,7 +289,7 @@ header a.active {
   color: #dddfeb!important;
 }
 .mb-4, .my-4 {
-  margin-bottom: 1.5rem!important;
+  margin-bottom: 0.5rem!important;
 }
 .no-gutters>.col, .no-gutters>[class*=col-] {
   padding-right: 0;
@@ -364,4 +367,116 @@ header a.active {
   background-color: yellow;
 }
 
+/******************Media Screen for Laptop and Desktop********************/
 
+@media screen and
+(min-width: 1025px) and (max-width: 1280px)
+   { 
+    .mb-4, .my-4 {
+      margin-bottom: 0rem!important;
+    }
+}
+
+/*For Large Deskop */
+@media (min-width: 1281px) {
+  .mb-4, .my-4 {
+    margin-bottom: 0rem!important;
+  }
+}
+
+/*For tablets and Ipads portrait*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  .mb-4, .my-4 {
+    margin-bottom: 0rem!important;
+  }
+  .modal-content {
+    width: 100%;
+  }
+  .btnether-adjust{
+    margin-top: 5px;
+  }
+  
+}
+
+/* Most of the smartphones */
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  .blkheight{
+    height: 66px;
+    padding-right: 0px;
+  }
+
+  .faicon{
+    margin-top: -10%;
+  }
+  .modal-content {
+    width: 100%;
+  }
+  .btnether-adjust{
+    margin-top: 5px;
+  }
+}
+
+/* Most of the smartphones */
+@media (min-width: 480px) and (max-width: 960px) {
+  
+  .blkheight{
+    height: 66px;
+    padding-right: 0px;
+  }
+
+  .mb-4, .my-4 {
+    margin-bottom: 0.5rem!important;
+  }
+  .faicon{
+    margin-top: -4%;
+  }
+  .modal-content {
+    width: 100%;
+  }
+}
+
+/* Most of the smartphones */
+@media (min-width: 414px) and (max-width: 736px) {
+  .btnether-adjust{
+    margin-top: 0px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 960px) {
+  .btnether-adjust{
+    margin-top: 0px;
+  }
+}
+
+.nopadding{
+  padding: 0px;
+}
+
+.paddingleft{
+  padding-left: 0px;
+}
+
+.paddingright{
+  padding-right: 0px;
+}
+
+.headerbackground{
+  background: rgba(255,255,255,0.3);
+  border: none;
+  margin-bottom: 0px;
+  background: none;
+}
+
+.navheadericonbar{
+  background-color: white !important;
+}
+
+.float-left{
+  float: left;
+}
+
+.bordernone{
+  border: none;
+}
