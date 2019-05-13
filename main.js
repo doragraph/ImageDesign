@@ -148,7 +148,7 @@ function getUserInfo()
 
     document.getElementById("24h_transaction").innerHTML = data.TFHtransaction;
     document.getElementById("24h_users").innerHTML = data.TFHuser;
-    document.getElementById("sc_bal").innerHTML = data.contactBalance;
+    //document.getElementById("sc_bal").innerHTML = data.contactBalance;
     document.getElementById("total_transaction").innerHTML = data.totalTransaction;
     document.getElementById("total_users").innerHTML = data.totaluser;
   } else {
@@ -236,4 +236,3 @@ async function connectMetamask(){
     console.log(error === "User rejected provider access")
   }
 }
-
