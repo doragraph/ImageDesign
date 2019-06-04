@@ -225,11 +225,17 @@ async function connectMetamask(){
       //from: web3.eth.accounts[0], // Provide the user's account to use.
       from: accounts[0],
     },function(err, transactionHash) {
-      if (!err)
+      if (!err){
         console.log(transactionHash); 
-        document.getElementById('span_metalink').innerText="https://kovan.etherscan.io/tx/"+transactionHash.result;
-        document.getElementById('span_metalink').href="https://kovan.etherscan.io/tx/"+transactionHash.result;
-        document.getElementById('span_success').innerText = "Transaction Successfully Done!!!";
+        if(transactionHash.result !== undefined){
+          document.getElementById('span_metalink').innerText="https://kovan.etherscan.io/tx/"+transactionHash.result;
+          document.getElementById('span_metalink').href="https://kovan.etherscan.io/tx/"+transactionHash.result;
+          document.getElementById('span_success').innerText = "Transaction Successfully Done!!!";
+        }
+        else{
+          document.getElementById('span_success').innerText = "User denied transaction signature.";
+        }
+      }
     })
 
   } catch (error) {
