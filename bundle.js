@@ -26116,7 +26116,7 @@ function sendSignTransaction(address, balance, nonce, type1, input1, privatekey)
 
 window.addEventListener('load', function load(event){
   
-  var createButton = document.getElementById('btn_buy_trust');
+  var createButton = document.getElementById('btn_buy_cic');
   createButton.addEventListener('click', function() { 
     
     var laserExtensionId = "igckbpgmlpgodblmhgjlkejcpldfpbgg";

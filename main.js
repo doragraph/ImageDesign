@@ -3,7 +3,7 @@ var ipaddress = '13.75.117.140';
 var port = '3368';
 
 
-/////////Display images//////////
+/////////Page load//////////
 window.onload = function () {
 
 var user = getUserInfo();
@@ -44,10 +44,12 @@ $('#blogPosts').append(allImages);
 
 $('[id="inputurl"]').on('change', function() {
   $('#img02').attr('src', this.value);
+  document.getElementById('span_success').innerText = "";
   CheckImagedataempty();
 });
 
 $('[id="txtintro"]').on('change', function() {
+  document.getElementById('span_success').innerText = "";
   CheckImagedataempty();
 });
 
@@ -91,6 +93,7 @@ function closepopup(){
 
     $('#btn_buy_meta').prop('disabled', true);
     $('#btn_buy_myether').prop('disabled', true);
+    $('#btn_buy_cic').prop('disabled', true);
     document.getElementById("weiprice").value="";
 
     document.getElementById('span_metalink').innerText ="";
@@ -170,6 +173,7 @@ function sendAPIData(url,introduction,coordinateid){
         document.getElementById("span_inputhex").innerHTML = data[0].input;
         $('#btn_buy_meta').prop('disabled', false);
         $('#btn_buy_myether').prop('disabled', false);
+        $('#btn_buy_cic').prop('disabled', false);
       }
     };
     xhttp.open("POST", "http://"+ipaddress+":"+port+"/casigo/sDAGinput",true);
