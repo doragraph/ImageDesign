@@ -164,7 +164,7 @@ function getUserInfo()
 
 
 ///Send image url, coordinate and introduction to get input hex
-function sendAPIData(url,introduction,coordinateid){
+function sendAPIData(url,introduction,coordinateid,weiprice){
     var xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -176,12 +176,19 @@ function sendAPIData(url,introduction,coordinateid){
         $('#btn_buy_cic').prop('disabled', false);
       }
     };
-    xhttp.open("POST", "http://"+ipaddress+":"+port+"/casigo/sDAGinput",true);
+    //xhttp.open("POST", "http://"+ipaddress+":"+port+"/casigo/sDAGinput",true);
+    xhttp.open("POST", "http://"+ipaddress+":"+port+"/casigo/sDAGbuyCoordinator",true);
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    var input = JSON.stringify({
+    /*var input = JSON.stringify({
       "coordinate": coordinateid,
       "url": url,
       "introduction": introduction
+    });*/
+    var input = JSON.stringify({
+      "coor": coordinateid,
+      "coimage": url,
+      "introduction": introduction,
+      "tokens":weiprice
     });
     xhttp.send(input);
 }
@@ -191,8 +198,9 @@ function CheckImagedataempty() {
   var url = document.getElementById('inputurl').value;
   var introduction = document.getElementById('txtintro').value;
   var coordinateid = document.getElementsByName('img01')[0].id;
+  var weiprice = document.getElementById('weiprice').value; //token value.
   if (( url != '') && (introduction != '')) {
-    sendAPIData(url,introduction,coordinateid);
+    sendAPIData(url,introduction,coordinateid,weiprice);
   }
 }
 
