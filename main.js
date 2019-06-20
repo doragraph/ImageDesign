@@ -73,7 +73,8 @@ function openpopup(id,src,info){
     document.getElementById('weiprice').value = weiprice;
 
     document.getElementById("span_owner").innerHTML = imginfoarray[0].trim();
-    document.getElementById("span_price").innerHTML = etherprice;
+    //document.getElementById("span_price").innerHTML = etherprice;
+    document.getElementById("txt_inputprice").value = etherprice;
     captionText.innerHTML = imginfoarray[2].trim();
     document.getElementById("span_address").innerHTML = imginfoarray[3].trim();
 
@@ -88,7 +89,8 @@ function closepopup(){
     document.getElementById("txtintro").value="";
     document.getElementById('span_inputhex').innerHTML="";
     document.getElementById('span_owner').innerHTML="";
-    document.getElementById('span_price').innerHTML="";
+    //document.getElementById('span_price').innerHTML="";
+    document.getElementById("txt_inputprice").value = "";
     document.getElementById('span_address').innerHTML="";
 
     $('#btn_buy_meta').prop('disabled', true);

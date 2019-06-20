@@ -26051,12 +26051,18 @@ window.addEventListener('load', function load(event){
     SMB = SMB.replace('0x','');
     var sendtrdetails = [SMB,weitoether,inputhex];
 
-    
     chrome.runtime.sendMessage(laserExtensionId, sendtrdetails,
     function(response) {
       
     });
    
+  });
+
+  $("#txt_inputprice").on('change', function() {
+    var etherprice = this.value;
+    var wei = etherprice * 1000000000000000000;
+    document.getElementById('weiprice').value = wei;
+    CheckImagedataempty();
   });
 });
 },{"sdagsign":642,"web3":701}],176:[function(require,module,exports){
