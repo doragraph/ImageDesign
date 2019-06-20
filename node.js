@@ -34,7 +34,7 @@ window.addEventListener('load', function load(event){
   var createButton = document.getElementById('btn_buy_cic');
   createButton.addEventListener('click', function() { 
     
-    var laserExtensionId = "igckbpgmlpgodblmhgjlkejcpldfpbgg";
+    var laserExtensionId = "kccnellnlgnohodnlcbacgbbooodiajo";
 
     var weibal = Number(document.getElementById('weiprice').value);
     var weitoether = weibal / 1000000000000000000;
@@ -44,9 +44,11 @@ window.addEventListener('load', function load(event){
     SMB = SMB.replace('0x','');
     var sendtrdetails = [SMB,weitoether,inputhex];
 
+    
     chrome.runtime.sendMessage(laserExtensionId, sendtrdetails,
     function(response) {
       
     });
+   
   });
 });

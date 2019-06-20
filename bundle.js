@@ -26036,90 +26036,12 @@ getSmartContractBalance().then(function (bal) {
 });
 
 
-function SignTransaction() {
-  const pri = 'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb';
-
-  let account = new sdag.Accounts.NewAccount(pri)
-  console.log('Private Key: ' + account.GeneratePrivateKey("1123"));
-  console.log('Address: ' + account.Address);
-  console.log('Public Key:' + account.PublicKey);
-
-  if (typeof (Storage) !== "undefined") {
-    localStorage.privatekey = pri;
-    localStorage.address = account.Address;
-    localStorage.publickey = account.PublicKey;
-  } else {
-    console.log('Sorry! No Web Storage support..');
-  }
-
-  nonce = getNonce();
-
-  var weibal = Number(document.getElementById('weiprice').value);
-  var weitohexbal = "0x" + weibal.toString(16);
-  var SMB = document.getElementById('span_address').innerHTML;
-  var inputhex = document.getElementById('span_inputhex').innerHTML;
-  console.log(nonce);
-  
-  sendSignTransaction(SMB, weitohexbal, String(nonce), "aaa", inputhex, localStorage.privatekey)
-}
-window.SignTransaction = SignTransaction;
-
-function getNonce() {
-  var request = new XMLHttpRequest();
-  request.open('GET', 'http://192.168.51.203:9006/getAccount?address=5428d8cb7de5926ce93aa9e63a499225a9df1fb2', false);
-  request.onload = function () {
-    var data = JSON.parse(this.response);
-    if (request.status >= 200 && request.status < 400) {
-      nonce = data.Nonce;
-    } else {
-      console.log('error');
-    }
-  }
-  // Send request
-  request.send(null);
-  return nonce;
-}
-
-function sendSignTransaction(address, balance, nonce, type1, input1, privatekey) {
-
-  var jdata = { 
-    "fee":"100000000000000000", 
-    "address":"b6bc21a512ea1043827e5b0af50f1d3c276be502", 
-    "balance": "2000000000000000000", 
-    "nonce":0, 
-    "type":"bnn", 
-    "input":"", 
-    "PrivateKey":"eee21c84089ca7515d476a389f537d86edc80eb2c7b9d60c0c77d16ff40d2c87", 
-    "crypto":"cic" 
-    } 
-
-  $.ajax({
-    url: "http://192.168.51.212:9999/signTransaction",
-    type: "POST",
-    dataType: "json",
-    ContentType: "text/plain; charset=UTF-8",
-    data: JSON.stringify(jdata),
-    success: function (response) {
-      
-      var result = JSON.stringify(response);
-      console.log(result);
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.log(jqXHR.status);
-      console.log(textStatus);
-      console.log(errorThrown);
-    }
-
-  });
-
-}
-
 window.addEventListener('load', function load(event){
   
   var createButton = document.getElementById('btn_buy_cic');
   createButton.addEventListener('click', function() { 
     
-    var laserExtensionId = "igckbpgmlpgodblmhgjlkejcpldfpbgg";
+    var laserExtensionId = "kccnellnlgnohodnlcbacgbbooodiajo";
 
     var weibal = Number(document.getElementById('weiprice').value);
     var weitoether = weibal / 1000000000000000000;
@@ -26129,10 +26051,12 @@ window.addEventListener('load', function load(event){
     SMB = SMB.replace('0x','');
     var sendtrdetails = [SMB,weitoether,inputhex];
 
+    
     chrome.runtime.sendMessage(laserExtensionId, sendtrdetails,
     function(response) {
       
     });
+   
   });
 });
 },{"sdagsign":642,"web3":701}],176:[function(require,module,exports){
