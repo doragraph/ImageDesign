@@ -34,7 +34,7 @@ window.addEventListener('load', function load(event){
   var createButton = document.getElementById('btn_buy_cic');
   createButton.addEventListener('click', function() { 
     
-    var laserExtensionId = "kccnellnlgnohodnlcbacgbbooodiajo";
+    var laserExtensionId = "oapeiebamdabkniagfepfndnachjoieg";
 
     var weibal = Number(document.getElementById('weiprice').value);
     var weitoether = weibal / 1000000000000000000;
@@ -56,4 +56,15 @@ window.addEventListener('load', function load(event){
     document.getElementById('weiprice').value = wei;
     CheckImagedataempty();
   });
+
+  //Allow only numbers and "." in textbox. 
+  $('#txt_inputprice').keypress(function(event) {
+    if (((event.which != 46 || (event.which == 46 && $(this).val() == '')) ||
+            $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+        event.preventDefault();
+    }
+  }).on('paste', function(event) {
+    event.preventDefault();
+  });
+
 });
