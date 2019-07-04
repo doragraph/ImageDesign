@@ -35,6 +35,7 @@ window.addEventListener('load', function load(event){
   createButton.addEventListener('click', function() { 
     
     var laserExtensionId = "oapeiebamdabkniagfepfndnachjoieg";
+    //var laserExtensionId = "kccnellnlgnohodnlcbacgbbooodiajo" //Remove this when push
 
     var weibal = Number(document.getElementById('weiprice').value);
     var weitoether = weibal / 1000000000000000000;
@@ -66,5 +67,4 @@ window.addEventListener('load', function load(event){
   }).on('paste', function(event) {
     event.preventDefault();
   });
-
 });
