@@ -34,8 +34,8 @@ window.addEventListener('load', function load(event){
   var createButton = document.getElementById('btn_buy_cic');
   createButton.addEventListener('click', function() { 
     
-    var laserExtensionId = "oapeiebamdabkniagfepfndnachjoieg";
-    //var laserExtensionId = "kccnellnlgnohodnlcbacgbbooodiajo" //Remove this when push
+    //var laserExtensionId = "oapeiebamdabkniagfepfndnachjoieg";
+    var laserExtensionId = "haekjhhgkhihfpijloeidmnhehmlbdml" //Remove this when push
 
     var weibal = Number(document.getElementById('weiprice').value);
     var weitoether = weibal / 1000000000000000000;
@@ -67,4 +67,11 @@ window.addEventListener('load', function load(event){
   }).on('paste', function(event) {
     event.preventDefault();
   });
+
+  //Block user from adding sigle and double quotes in introduction.
+  $("#txtintro").on('input', function () {
+    var value = $(this).val().replace(/'/g, '').replace(/"/g, '');
+    $(this).val(value);
+  });
+
 });

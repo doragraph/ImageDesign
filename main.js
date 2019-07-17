@@ -20,9 +20,6 @@ var imginfo = imgurl[1];
 
 imginfo = sortByKey(imginfo, 'sort');
 
-
-//console.log(imginfo);
-
 for (var i = 1, j = imginfo.length; i < j; i++) {
     
     if(imginfo[i]["url"] == undefined){imginfo[i]["url"]="image/upload.png"}
@@ -256,3 +253,4 @@ async function connectMetamask(){
     console.log(error === "User rejected provider access")
   }
 }
+
